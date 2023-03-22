@@ -88,7 +88,7 @@ export const loginController = async (req,res) => {
 
          //CREATING TOKEN
          const token = await JWT.sign({_id:user._id}, process.env.JWT_SECRET, {
-            expiresIn: "7d",
+            expiresIn: '7d',
         });
         res.status(200).send({
             success:true,
@@ -97,7 +97,7 @@ export const loginController = async (req,res) => {
                 name:user.name,
                 email: user.email,
                 phone:user.phone,
-                address: user.addresss
+                address: user.address,
             },
             token,
         });
@@ -119,6 +119,6 @@ export const loginController = async (req,res) => {
 
 //test Controller
 
-export const testController = (req,res) =>{
+export const testController = async (req,res) =>{
     res.send("Protected Routes");
 };
